@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace AFTry
 {
-    class GControl : Panel
+    public class GControl : Panel
     {
         public Tool SelectedTool;
 
@@ -45,17 +45,18 @@ namespace AFTry
         }
 
         bool acceptLink = false;
+
         public void AddLink(Node a)
         {
             if (acceptLink == false)
             {
                 
-                Links.Add(new LinkStr(a.Location));
+                Links.Add(new LinkStr(a));
                 acceptLink = true;
             }
             else
             {
-                Links.Last().B = a.Location;
+                Links.Last().B = a;
                 LinkCntr.Add(new Link(Links.Last().A, Links.Last().B, this));
                 Controls.Add(LinkCntr.Last());
                 acceptLink = false;
@@ -76,7 +77,7 @@ namespace AFTry
         {
             for (int i = 0; i < Links.Count; i++)
             {
-                Controls.Remove(LinkCntr[i]);
+                //Controls.Remove(LinkCntr[i]);
               //  LinkCntr[i].LinkNodes()
 
             }
@@ -89,10 +90,11 @@ namespace AFTry
         AddNode,
         Move,
     }
+
     public class LinkStr
     {
-        public Point A, B;
-        public LinkStr(Point a)
+        public Node A, B;
+        public LinkStr(Node a)
         {
             A = a;
             B = a;

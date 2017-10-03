@@ -9,7 +9,7 @@ using System.Drawing.Drawing2D;
 
 namespace AFTry
 {
-    class Node : Button
+    public class Node : Button
     {
         public Node(int X, int Y, GControl c) : base()
         {
@@ -30,10 +30,16 @@ namespace AFTry
 
         public GControl parent;
 
+        public event Action LocationChanged;
+
         public new Point Location
         {
             get { return new Point(base.Location.X + this.Size.Width / 2, base.Location.Y + this.Size.Height / 2); }
-            set { base.Location = new Point(value.X - this.Size.Width / 2, value.Y - this.Size.Height / 2); }
+            set
+            {
+                LocationChanged?.Invoke();
+                base.Location = new Point(value.X - this.Size.Width / 2, value.Y - this.Size.Height / 2);
+            }
         }
         public Point NodePoint
         {

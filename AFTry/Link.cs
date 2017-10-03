@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace AFTry
 {
-    class Link : Button
+    public class Link : Button
     {
         public Node N1 { get; set; }
         public Node N2 { get; set; }
@@ -20,10 +20,10 @@ namespace AFTry
         Point n1;
         Point n2;
 
-        public Link(Point n1, Point n2,GControl c) : base()
+        public Link(Node n1, Node n2,GControl c) : base()
         {
-            this.n1 = n1;
-            this.n2 = n2;
+            this.N1 = n1;
+            this.N2 = n2;
             parent = c;
             int radius = 40;
             Size = new Size(radius, radius);
