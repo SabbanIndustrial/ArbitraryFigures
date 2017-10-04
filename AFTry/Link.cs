@@ -9,8 +9,12 @@ using System.Windows.Forms;
 
 namespace AFTry
 {
+    /// <summary>
+    /// Связь, наследована с Button
+    /// </summary>
     public class Link : Button
     {
+        //пока лень дальше комментировать
         public Node N1 { get; set; }
         public Node N2 { get; set; }
 
@@ -47,20 +51,16 @@ namespace AFTry
         protected override void OnPaint(PaintEventArgs e)
         {
             if (showLink)
-            {
+            { 
+                // сложна разобраться, но код дальше делает конпку в виде наклонной линии между двумя вершинами
                 base.OnPaint(e);
-
-
                 Point swapHelp;
                 if (n1.X > n2.X)
                 {
                     swapHelp = n1;
                     n1 = n2;
                     n2 = swapHelp;
-
                 }
-
-
                 this.Size = new Size(Math.Abs(n1.X - n2.X), Math.Abs(n1.Y - n2.Y));
                 if (Size.Width>0||Size.Height>0) {
                     Point p1 = new Point(0, n1.Y < n2.Y ? 0 : this.Size.Height);

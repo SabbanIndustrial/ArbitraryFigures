@@ -9,6 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+/// <summary>
+/// Старый вариант перечисления инструментов.
+/// </summary>
 public enum Mode
 {
     NodeReposition = 0,
@@ -21,7 +24,10 @@ public enum Mode
 
 
 namespace AFTry
-{
+{/// <summary>
+/// Главная форма.
+/// Какой-то говнокод, который мне лень удалять.
+/// </summary>
     public partial class Form1 : Form
     {
         public Graphics G { get; set; }
